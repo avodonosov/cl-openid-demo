@@ -8,5 +8,5 @@
     (who)
   (format nil "hello ~A" who))
 
-(defun start (&key port smtp-password)
-  (hunchentoot:start (make-instance 'hunchentoot:easy-acceptor :port 4242)))
+(defun start (&key port)
+  (hunchentoot:start (make-instance 'hunchentoot:easy-acceptor :port port)))
