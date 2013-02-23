@@ -18,6 +18,8 @@
                   :initform (error ":relying-party is required"))))
 
 (defun cur-user ()
+  "Returns either NIL or a plist containing various
+user account attributes, as created by MAKE-ACCOUNT."
   (and hunchentoot:*session*
        (hunchentoot:session-value 'cur-user)))
 
@@ -98,7 +100,9 @@
 
 (defun make-account (open-id-identity response-message)
   "Unify attributes representation of the two extensions:
-OpenID Simple Registration Extension or OpenID Attribute Exchange Extension."
+OpenID Simple Registration Extension or OpenID Attribute Exchange Extension.
+
+RESPONSE-MESSAGE is an assoc-list representing OpenID provider response."
   (labels ((val (key)
              (cdr (assoc key response-message :test #'string=)))
            (or-val (key1 key2)
@@ -109,7 +113,6 @@ OpenID Simple Registration Extension or OpenID Attribute Exchange Extension."
           :fullname (val "openid.sreg.fullname")
           :firstname (val "openid.ext1.value.firstname")
           :lastname (val "openid.ext1.value.lastname")
-
           :birthday (val "openid.sreg.dob")
           :country (or-val "openid.sreg.country" "openid.ext1.value.country")
           :language (or-val "openid.sreg.language" "openid.ext1.value.language")
