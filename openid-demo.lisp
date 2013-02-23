@@ -140,7 +140,6 @@ OpenID Simple Registration Extension or OpenID Attribute Exchange Extension."
       (t (e) (RETURN-FROM openid-rp (format nil "Error: ~A" e))))
     (if user-id-url
         (progn         
-          (format t "(type-of user-id-url): ~A~%" (type-of user-id-url))
           ;; todo for cl-openid: return user ID as a string instead puri:uri
           (setf user-id-url (princ-to-string user-id-url))
           
@@ -160,7 +159,6 @@ OpenID Simple Registration Extension or OpenID Attribute Exchange Extension."
                                             host-port)))
     ;; todo for cl-openid: allow the URIs to be just strings
     ))
-
 
 (defun start (&key port public-host (public-port port))
   "
