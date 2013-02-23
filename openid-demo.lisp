@@ -1,3 +1,7 @@
+;;; -*- Mode: LISP; Syntax: COMMON-LISP; indent-tabs-mode: nil; coding: utf-8;  -*-
+;;; Copyright (C) 2013 Anton Vodonosov (avodonosov@yandex.ru)
+;;; See README.md for details.
+
 (defpackage :openid-demo
   (:use :cl)
   (:export :start))
