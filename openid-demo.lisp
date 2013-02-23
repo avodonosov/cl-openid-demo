@@ -24,12 +24,17 @@
 <html>
   <head><title>CL OpenID Demo</title></head>
   <body>
-    <div><img src=\"http://www.lisperati.com/lisplogo_alien_128.png\"
-              style=\"vertical-align:middle;\"/>
-    Hello Friend!
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"/login\">(re)login</a>
-    </div>
-    <p>You are authenticated as:<br/> <code>~S</code></p>
+    <p>
+      <table border=\"0\" cellspacing=\"10\">
+        <tr>
+            <td style=\"vertical-align:top;\">
+              <img src=\"http://www.lisperati.com/lisplogo_alien_128.png\"/></td>
+            <td style=\"vertical-align:top; padding-top: 40px\">
+              Hello friend! You are authenticated as:<br/>
+              <pre><code>(~{~(~S~) ~S~^~% ~})</code></pre></td>
+            <td style=\"vertical-align:top; padding-top: 40px;\">
+              <a href=\"/login\"><b>(re)login</b></a></td></tr>
+      </table></p>
   </body>
 </html>"
           (cur-user)))
