@@ -5,6 +5,6 @@
 (asdf:defsystem #:openid-demo
   :version "1.0.0"
   :serial t
-  :depends-on (#:hunchentoot #:cl-openid)
+  :depends-on (#:hunchentoot #:cl-openid #:alexandria #:puri)
   :components ((:file "openid-demo")))
 
