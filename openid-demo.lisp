@@ -30,10 +30,10 @@
             <td style=\"vertical-align:top;\">
               <img src=\"http://www.lisperati.com/lisplogo_alien_128.png\"/></td>
             <td style=\"vertical-align:top; padding-top: 40px\">
-              Hello friend! You are authenticated as:<br/>
-              <pre><code>(~{~(~S~) ~S~^~% ~})</code></pre></td>
+              Hello friend! You are authenticated as: ~:[<code>NIL</code>~;
+              ~:*<pre><code>(~{~(~S~) ~S~^~% ~})</code></pre>~]</td>
             <td style=\"vertical-align:top; padding-top: 40px;\">
-              <a href=\"/login\"><b>(re)login</b></a></td></tr>
+              <a href=\"/login\" style=\"margin-left: 10ex\"><b>(re)login</b></a></td></tr>
       </table></p>
   </body>
 </html>"
@@ -65,7 +65,7 @@
                              ;; attributes that we want but do not require may be requested
                              ;; as if_available, although for example Google doesn't support
                              ;; if_available today (see https://developers.google.com/accounts/docs/OpenID,
-                             ;; section "Attribute exchange extension" for the list what google support)
+                             ;; section "Attribute exchange extension" for the list of what google support)
                              ;;
                              ;;:openid.ax.if_available ""
                              ))
@@ -168,10 +168,8 @@ OpenID Simple Registration Extension or OpenID Attribute Exchange Extension."
 (defun start (&key port public-host (public-port port))
   "
   PORT is the TCP port we open socket at.
-
   PUBLIC-HOST is the host name through wich user's browser access our application;
               you can use \"localhost\" during development.
-            
   PUPLIC-PORT is the port on wich user's browser access our application
               (may be different from PORT for exmaple at Heroku)."
 
