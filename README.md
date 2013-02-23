@@ -1,4 +1,4 @@
-This program demonstrates how provide OpenID login in Common Lisp web applications.
+This program demonstrates how to provide OpenID login in Common Lisp web applications.
 
 See it running at Heroku: http://cl-openid-demo.herokuapp.com/
 (with the help of [CL Heroku buildpack](https://github.com/avodonosov/heroku-buildpack-cl2/)).
