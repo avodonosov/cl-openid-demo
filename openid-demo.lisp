@@ -67,7 +67,7 @@
             (simple-reg '(:openid.ns.sreg "http://openid.net/extensions/sreg/1.1"
                           :openid.sreg.optional "nickname,email,fullname,dob,gender,postcode,country,language,timezone")))
         (hunchentoot:REDIRECT            
-         (cl-openid:initiate-authentication (relying-party hunchentoot:*acceptor*) 
+         (cl-openid:initiate-authentication (relying-party hunchentoot:*acceptor*)
                                             openid_identifier
                                             :extra-parameters (append attr-exchange
                                                                       simple-reg))))
@@ -123,14 +123,14 @@ OpenID Simple Registration Extension or OpenID Attribute Exchange Extension."
          ;; representation as open-id message: an alist
          (message (hunchentoot:get-parameters hunchentoot:*request*)) 
          (absolute-reply-uri (puri:merge-uris (hunchentoot:request-uri hunchentoot:*request*) 
-                                              (cl-openid:root-uri *relying-party*)))
+                                              (cl-openid:root-uri (relying-party hunchentoot:*acceptor*))))
          user-id-url
          authproc)
     (format t "response message: ~% ~{~s~^~% ~}~%" message)
     (finish-output)
     (handler-case 
         (setf (values user-id-url authproc) 
-              (cl-openid:handle-indirect-response *relying-party* 
+              (cl-openid:handle-indirect-response (relying-party hunchentoot:*acceptor*)
                                                   message
                                                   absolute-reply-uri))
       (cl-openid:openid-assertion-error (e)
