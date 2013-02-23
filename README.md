@@ -4,6 +4,8 @@ See its running at Heroku: http://cl-openid-demo.herokuapp.com/
 
 Powered by [cl-open-id](common-lisp.net/project/cl-openid/).
 
+The main source file is [openid-demo.lisp](openid-demo.lisp).
+
 _Temporary Hint: In Quicklisp 2013-02-17 cl-openid is broken. For your development
 either get the previous dist by `(ql-dist:install-dist "http://beta.quicklisp.org/dist/quicklisp/2013-01-28/distinfo.txt" :replace t :prompt nil)` or use the recent cl-openid from Trac._
 
