@@ -49,7 +49,7 @@ user account attributes, as created by MAKE-ACCOUNT."
                                                         (src-rel-path  "jquery-openid/"))
       hunchentoot:*dispatch-table*)
 
-(hunchentoot:define-easy-handler (send-notification :uri "/login")
+(hunchentoot:define-easy-handler (login :uri "/login")
     (openid_identifier)
   (if openid_identifier ;; form submited, initiate authentication      
       ;; We can request not only user identity, but also additional
