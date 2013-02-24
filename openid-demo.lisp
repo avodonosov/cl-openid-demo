@@ -103,19 +103,22 @@ user account attributes, as created by MAKE-ACCOUNT."
 OpenID Simple Registration Extension or OpenID Attribute Exchange Extension.
 
 RESPONSE-MESSAGE is an assoc-list representing OpenID provider response."
-  (labels ((val (key)
-             (cdr (assoc key response-message :test #'string=)))
-           (or-val (key1 key2)
-             (or (val key1) (val key2))))
+  (flet ((val (key)
+           (cdr (assoc key response-message :test #'string=))))
     (list :claimed-id open-id-identity
-          :email (or-val "openid.sreg.email" "openid.ext1.value.email")
+          :email (or (val "openid.sreg.email") (val "openid.ext1.value.email"))
           :nickname (val "openid.sreg.nickname")
-          :fullname (val "openid.sreg.fullname")
+          :fullname (or (val "openid.sreg.fullname")
+                        (and (val "openid.ext1.value.firstname")
+                             (val "openid.ext1.value.lastname")
+                             (format nil "~A ~A"
+                                     (val "openid.ext1.value.firstname")
+                                     (val "openid.ext1.value.lastname"))))
           :firstname (val "openid.ext1.value.firstname")
           :lastname (val "openid.ext1.value.lastname")
           :birthday (val "openid.sreg.dob")
-          :country (or-val "openid.sreg.country" "openid.ext1.value.country")
-          :language (or-val "openid.sreg.language" "openid.ext1.value.language")
+          :country (or (val "openid.sreg.country") (val "openid.ext1.value.country"))
+          :language (or (val "openid.sreg.language") (val "openid.ext1.value.language"))
           :timezone (val "openid.sreg.timezone")
           :postcode (val "openid.sreg.postcode")))
 
