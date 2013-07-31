@@ -5,11 +5,6 @@ See it running at Heroku: http://cl-openid-demo.herokuapp.com/
 
 Powered by [cl-open-id](http://common-lisp.net/project/cl-openid/).
 
-_Temporary Hint: In Quicklisp 2013-02-17 cl-openid is broken. For your development
-either get the previous Quicklisp dist by 
-`(ql-dist:install-dist "http://beta.quicklisp.org/dist/quicklisp/2013-01-28/distinfo.txt" :replace t :prompt nil)`
-or use the recent cl-openid from Darcs._
-
 Author
 ------
   Anton Vodonosov, avodonosov@yandex.ru
