@@ -19,5 +19,5 @@ The directory jquery-openid contains the
 (with slight modification by me). The jQuey OpenID Plugin is under the
 [Creative Commons Attribution License](https://creativecommons.org/licenses/by/3.0/).
 
-The lisp mascot is a public domain image [by Contad Barski] (http://www.lisperati.com/logo.html).
+The lisp mascot is a public domain image [by Conrad Barski] (http://www.lisperati.com/logo.html).
 
